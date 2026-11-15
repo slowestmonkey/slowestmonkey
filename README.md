@@ -17,10 +17,3 @@ I write payments software for a living. Everything public here is an experiment:
 | [**podcut**](https://github.com/slowestmonkey/podcut) | Can AI find the five minutes worth hearing in a long podcast? |
 
 None of these are maintained. The answers are in each README.
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/snake-dark.svg">
-    <img src="assets/snake-light.svg" alt="Contribution graph with a snake eating the contributions">
-  </picture>
-</p>
