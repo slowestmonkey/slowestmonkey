@@ -1,0 +1,31 @@
+name: Contribution snake
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  snake:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+
+      - uses: Platane/snk/svg-only@v3.5.0
+        with:
+          github_user_name: slowestmonkey
+          github_token: ${{ secrets.SNAKE_TOKEN }}
+          outputs: |
+            assets/snake-light.svg
+            assets/snake-dark.svg?palette=github-dark
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/snake-*.svg
+          git diff --cached --quiet || git commit -m "Update contribution snake"
+          git push
